@@ -4,6 +4,12 @@ var prompt = require('prompt');
 
 prompt.start()
 
+prompt.get(['hand1', 'hand2'], function (error, result) {
+  if (acceptableInput(result['hand1']) && acceptableInput(result['hand2'])) {
+  console.log(compareHands(result['hand1'], result['hand2']));
+  } else {
+  console.log('Only "rock", "paper", or "scissors" is acceptable');
+}
 function compareHands(hand1, hand2) {
   if (hand1 === hand2) {
     return "It's a tie!";
@@ -45,10 +51,5 @@ function acceptableInput(hand) {
   return false;
 };
 
-prompt.get(['hand1', 'hand2'], function (error, result) {
-  if (acceptableInput(result['hand1']) && acceptableInput(result['hand2'])) {
-  console.log(compareHands(result['hand1'], result['hand2']));
-  } else {
-  console.log('Only "rock", "paper", or "scissors" is acceptable');
-}
+
 });

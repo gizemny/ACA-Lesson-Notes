@@ -24,27 +24,44 @@ function printStacks() {
 // }
 
 function moveBlock(start,finish) {
-	var poppedItem = stacks.a.pop();
-	stacks.b.push(poppedItem);
+	// var poppedItem = stacks[start].pop();
+	// stacks[finish].push(poppedItem);
+	stacks[finish].push(stacks[start].pop());
 }
 
+function isLegal(start, finish) {
+	var startLastIndex = stacks[start].length-1;
+	var finishLastIndex = stacks[finish].length-1;
+
+	var movingBlock = stacks[start][startLastIndex];
+
+	var compareStack = stacks[finish][finishLastIndex];
+
+	if (movingBlock < compareStack || !compareStack) {
+		return true;
+		} else {
+		console.log('Not a legal move!');
+		return false;
+		}
+	}
 function checkForWin() {
-	if (stacks.b.length === 4 || stacks.c.length === 4);
-	return false;
+if (stacks['b'].length === 4 || stacks['c'].length === 4) {
 	console.log('Congrats! Game Won!');
+	return true;
+}
+return false;
 }
 
 function getPrompt() {
+  printStacks();
 	prompt.get(['start', 'finish'], function (error,result) {
-	  console.log(result);
-	  // compareStacks();
-	  getPrompt();
-		moveBlock();
-	  printStacks();
-	  checkForWin();
+	  if (isLegal(result['start'], result['finish'])) {
+	  	moveBlock(result['start'], result['finish']);
+	  }
+	  if (!checkForWin()) {
+	  	getPrompt();
+	  }
 });
 }
 
-moveBlock ();
 getPrompt();
-printStacks();

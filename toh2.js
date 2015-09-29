@@ -4,7 +4,7 @@ var prompt = require('prompt');
 prompt.start();
 // create associate array of stacks 
 var stacks = {
-	a: [1, 2, 3, 4],
+	a: [4, 3, 2, 1],
 	b: [],
 	c: []
 }

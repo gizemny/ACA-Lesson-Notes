@@ -44,6 +44,7 @@ function isLegal(start, finish) {
 		return false;
 		}
 	}
+	
 function checkForWin() {
 if (stacks['b'].length === 4 || stacks['c'].length === 4) {
 	console.log('Congrats! Game Won!');

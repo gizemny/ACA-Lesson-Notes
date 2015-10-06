@@ -51,8 +51,8 @@ board[numTry].push(message);
 
 
 // generate random for solution
-var solution = null;
-var guess = 'bacd';
+var solution = 'ccdd';
+var guess = 'bdbb';
 
 function generateRandomCode() {
 	var letters = ['a', 'b', 'c', 'd', 'e' , 'g', 'h'];

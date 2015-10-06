@@ -54,6 +54,10 @@ var solution = 'abcd';
 
 function insertCode(pattern) {
   var splitPattern = pattern.split('');
+  var message = computeMessage(splitPattern);
+//...
+board[numTry].push(message);
+
   board[numTry][0] = splitPattern[0];
   board[numTry][1] = splitPattern[1];
   board[numTry][2] = splitPattern[2];
